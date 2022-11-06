@@ -9,16 +9,21 @@ const ListItem = styled(Text)`
 	border-radius: 5px;
 `
 
-const Item = ({ item }) => {
+const Item = ({ item, onPress }) => {
 	return (
-		<TouchableOpacity>
+		<TouchableOpacity onPress={() => onPress(item.id)}>
 			<ListItem>{item.text} </ListItem>
 		</TouchableOpacity>
 	)
 }
 
-const List = ({ list }) => {
-	return <FlatList data={list} renderItem={Item} />
+const List = ({ list, onPress }) => {
+	return (
+		<FlatList
+			data={list}
+			renderItem={({ item }) => <Item item={item} onPress={onPress} />}
+		/>
+	)
 }
-
+// onPress={onPress(item.key)}
 export default List
