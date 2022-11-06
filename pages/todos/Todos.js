@@ -22,11 +22,15 @@ const Todos = () => {
 		{ text: "Watch football match", id: 5 },
 	])
 
+	const handlePress = (id) => {
+		setTodos((prevTodos) => prevTodos.filter((todo) => todo.id != id))
+	}
+
 	return (
 		<Container>
 			<Header />
 			<Body>
-				<List list={todos} />
+				<List list={todos} onPress={handlePress} />
 			</Body>
 		</Container>
 	)
