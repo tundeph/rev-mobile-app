@@ -6,12 +6,13 @@ const ListItem = styled(Text)`
 	padding: 16px;
 	background-color: #ebebed;
 	margin: 5px 0px;
-	border-radius: 5px;
+	border-radius: 8px;
+	overflow: hidden;
 `
 
 const Item = ({ item, onPress }) => {
 	return (
-		<TouchableOpacity onPress={() => onPress(item.id)}>
+		<TouchableOpacity onPress={() => onPress(item)}>
 			<ListItem>{item.text} </ListItem>
 		</TouchableOpacity>
 	)
@@ -25,5 +26,5 @@ const List = ({ list, onPress }) => {
 		/>
 	)
 }
-// onPress={onPress(item.key)}
+
 export default List
