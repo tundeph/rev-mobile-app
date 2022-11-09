@@ -1,12 +1,19 @@
 import React from "react"
-import { StyleSheet, View, Text } from "react-native"
+import {
+	StyleSheet,
+	View,
+	TouchableWithoutFeedback,
+	Keyboard,
+} from "react-native"
 import Todos from "./pages/todos/Todos"
 
 const App = () => {
 	return (
-		<View style={styles.container}>
-			<Todos />
-		</View>
+		<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+			<View style={styles.container}>
+				<Todos />
+			</View>
+		</TouchableWithoutFeedback>
 	)
 }
 
