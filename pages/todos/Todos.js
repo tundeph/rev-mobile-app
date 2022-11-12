@@ -7,10 +7,12 @@ import List from "./components/List"
 import AddTask from "./components/AddTask"
 
 const Container = styled(View)`
+	flex: 1;
 	width: 100%;
 `
 
 const Body = styled(View)`
+	flex: 1;
 	padding: 10px 16px;
 `
 
