@@ -1,29 +1,20 @@
 import React from "react"
-import {
-	StyleSheet,
-	View,
-	TouchableWithoutFeedback,
-	Keyboard,
-} from "react-native"
-import Todos from "./pages/todos/Todos"
+
+import { useFonts } from "expo-font"
+import TodosApp from "./apps/todos-app/TodosApp"
+import ReviewsApp from "./apps/reviews-app/ReviewsApp"
 
 const App = () => {
-	return (
-		<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-			<View style={styles.container}>
-				<Todos />
-			</View>
-		</TouchableWithoutFeedback>
-	)
+	const [fontsLoaded] = useFonts({
+		Beatrice: require("./assets/fonts/Beatrice.ttf"),
+		"Beatrice Bold": require("./assets/fonts/Beatrice_Bold.ttf"),
+		"Beatrice Bold Italic": require("./assets/fonts/Beatrice_Bold_Italic.ttf"),
+	})
+
+	if (!fontsLoaded) return null
+
+	// return <TodosApp />
+	return <ReviewsApp />
 }
 
 export default App
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: "#fff",
-		alignItems: "center",
-		// justifyContent: "center",
-	},
-})
