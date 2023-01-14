@@ -4,6 +4,7 @@ import { View, Text } from "react-native"
 export const TitleText = styled(Text)`
 	font-family: "Beatrice Bold";
 	font-size: 18px;
+	color: #fff;
 `
 
 export const BodyText = styled(Text)`
