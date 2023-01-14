@@ -10,6 +10,7 @@ const Stack = createNativeStackNavigator()
 const options = {
 	headerStyle: {
 		backgroundColor: "#592be3",
+		height: 1000,
 	},
 	headerTintColor: "#fff",
 	headerTitleStyle: {
@@ -17,20 +18,31 @@ const options = {
 	},
 }
 
-const HeaderTile = () => {
-	return <TitleText> Hey!</TitleText>
+const HeaderTile = (props) => {
+	return (
+		<TitleText>
+			{props.route ? props.route.params.title : props.children}
+		</TitleText>
+	)
 }
 
 const ReviewsApp = () => {
 	return (
 		<NavigationContainer>
-			{/* <Stack.Navigator screenOptions={options}> */}
-			<Stack.Navigator>
-				<Stack.Screen name="Home" component={Home} />
+			<Stack.Navigator screenOptions={{ ...options }}>
+				<Stack.Screen
+					name="Home"
+					component={Home}
+					options={{
+						headerTitle: (props) => <HeaderTile {...props} />,
+					}}
+				/>
 				<Stack.Screen
 					name="Review Details"
 					component={ReviewDetails}
-					options={{ headerTile: (props) => <HeaderTile {...props} /> }}
+					options={({ route }) => ({
+						headerTitle: (props) => <HeaderTile route={route} {...props} />,
+					})}
 				/>
 			</Stack.Navigator>
 		</NavigationContainer>
