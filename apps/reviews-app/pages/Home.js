@@ -11,7 +11,6 @@ const Home = ({ navigation }) => {
 
 	return (
 		<ContainerView>
-			<TitleText>Home </TitleText>
 			<FlatList
 				data={reviews}
 				renderItem={({ item }) => (
